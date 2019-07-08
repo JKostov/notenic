@@ -13,7 +13,10 @@ import { JwtFactory } from '@app/shared/auth/jwt.factory';
       useClass: JwtFactory,
     }),
   ],
-  providers: [AuthService],
-  exports: [PassportModule, AuthService],
+  providers: [{
+    provide: 'IAuthService',
+    useClass: AuthService,
+  }],
+  exports: [PassportModule, 'IAuthService'],
 })
 export class AuthModule { }

@@ -16,9 +16,9 @@
     "prestart:prod": "rimraf dist && npm run build",
     "start:prod": "node -r ./tsconfig-paths.js dist/main.js",
     "lint": "tslint -p tsconfig.json -c tslint.json",
-    "test": "jest",
-    "test:watch": "jest --watch",
-    "test:cov": "jest --coverage",
+    "test": "export NODE_ENV=test && jest",
+    "test:watch": "export NODE_ENV=test && jest --watchAll",
+    "test:cov": "export NODE_ENV=test && jest --coverage",
     "test:debug": "node --inspect-brk -r tsconfig-paths/register -r ts-node/register node_modules/.bin/jest --runInBand",
     "test:e2e": "jest --config ./test/jest-e2e.json"
   },
@@ -72,6 +72,9 @@
       "^.+\\.(t|j)s$": "ts-jest"
     },
     "coverageDirectory": "../coverage",
-    "testEnvironment": "node"
+    "testEnvironment": "node",
+    "moduleNameMapper": {
+      "@app/(.*)": "<rootDir>/$1"
+    }
   }
 }

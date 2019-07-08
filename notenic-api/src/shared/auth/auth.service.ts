@@ -1,9 +1,10 @@
 import { JwtService } from '@nestjs/jwt';
 import { Injectable } from '@nestjs/common';
 import { JwtPayload } from '@app/shared/auth/interfaces/jwt-payload.interface';
+import { IAuthService } from '@app/shared/auth/interfaces/auth.service.interface';
 
 @Injectable()
-export class AuthService {
+export class AuthService implements IAuthService {
   constructor(
     private readonly jwtService: JwtService,
   ) {}

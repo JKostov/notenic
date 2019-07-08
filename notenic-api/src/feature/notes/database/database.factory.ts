@@ -1,6 +1,6 @@
-import { Injectable } from '@nestjs/common';
+import { Inject, Injectable } from '@nestjs/common';
 import { TypeOrmOptionsFactory, TypeOrmModuleOptions } from '@nestjs/typeorm';
-import { ConfigService } from '@app/shared/config/config.service';
+import { IConfigService } from '@app/shared/config/interfaces/config.service.interface';
 
 @Injectable()
 export class DatabaseFactory implements TypeOrmOptionsFactory {
@@ -8,7 +8,7 @@ export class DatabaseFactory implements TypeOrmOptionsFactory {
   private static readonly MinPortNumber = 1;
   private static readonly DefaultPort = 5432;
 
-  constructor(private configService: ConfigService) { }
+  constructor(@Inject('IConfigService') private configService: IConfigService) { }
 
   createTypeOrmOptions(): TypeOrmModuleOptions {
     return {

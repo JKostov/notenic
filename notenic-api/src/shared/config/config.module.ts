@@ -4,10 +4,10 @@ import { ConfigService } from '@app/shared/config/config.service';
 @Module({
   providers: [
     {
-      provide: ConfigService,
+      provide: 'IConfigService',
       useValue: new ConfigService(`.env.${process.env.NODE_ENV}`),
     },
   ],
-  exports: [ConfigService],
+  exports: ['IConfigService'],
 })
 export class ConfigModule {}
