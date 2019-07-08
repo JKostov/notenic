@@ -9,7 +9,11 @@
     "sourceMap": true,
     "outDir": "./dist",
     "baseUrl": "./",
-    "incremental": true
+    "incremental": true,
+    "paths": {
+      "@app/*": ["./src/*"],
+      "@notes/*": ["./src/feature/notes/*"]
+    }
   },
   "exclude": ["node_modules"]
 }
