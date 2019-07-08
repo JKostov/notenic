@@ -11,7 +11,8 @@
     "baseUrl": "./",
     "incremental": true,
     "paths": {
-      "@app/*": ["./src/*"]
+      "@app/*": ["./src/*"],
+      "@notes/*": ["./src/feature/notes/*"]
     }
   },
   "exclude": ["node_modules"]

@@ -1,9 +1,9 @@
 import { Injectable } from '@nestjs/common';
 import { TypeOrmOptionsFactory, TypeOrmModuleOptions } from '@nestjs/typeorm';
-import { ConfigService } from '@app/core/config/config.service';
+import { ConfigService } from '@app/shared/config/config.service';
 
 @Injectable()
-export class DatabaseService implements TypeOrmOptionsFactory {
+export class DatabaseFactory implements TypeOrmOptionsFactory {
   private static readonly MaxPortNumber = 65535;
   private static readonly MinPortNumber = 1;
   private static readonly DefaultPort = 5432;
@@ -23,12 +23,12 @@ export class DatabaseService implements TypeOrmOptionsFactory {
     };
   }
 
-  getDatabasePort(): number {
+  private getDatabasePort(): number {
     const port = this.configService.get('POSTGRES_PORT');
     const numberPort = Number(port);
 
-    if (isNaN(numberPort) || numberPort > DatabaseService.MaxPortNumber || numberPort < DatabaseService.MinPortNumber) {
-      return DatabaseService.DefaultPort;
+    if (isNaN(numberPort) || numberPort > DatabaseFactory.MaxPortNumber || numberPort < DatabaseFactory.MinPortNumber) {
+      return DatabaseFactory.DefaultPort;
     }
 
     return numberPort;
