@@ -19,9 +19,9 @@
       "dom"
     ],
     "paths": {
-      "@app/*": ["./src/app/*"],
-      "@notenic/*": ["./src/app/notenic/*"],
-      "environments/*": ["./src/environments/*"]
+      "@app/*": ["src/app/*"],
+      "@notenic/*": ["src/app/notenic/*"],
+      "environments/*": ["src/environments/*"]
     }
   }
 }

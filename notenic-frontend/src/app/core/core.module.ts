@@ -7,6 +7,7 @@ import { StoreDevtoolsModule } from '@ngrx/store-devtools';
 import { EffectsModule } from '@ngrx/effects';
 import { environment } from 'environments/environment';
 import { FormsModule } from '@angular/forms';
+import { CommonModule } from '@angular/common';
 
 const reducers = {};
 
@@ -14,6 +15,7 @@ const effects = [];
 
 @NgModule({
   imports: [
+    CommonModule,
     BrowserModule,
     BrowserAnimationsModule,
     HttpClientModule,
@@ -26,9 +28,11 @@ const effects = [];
     })
   ],
   exports: [
+    CommonModule,
     BrowserModule,
     BrowserAnimationsModule,
     HttpClientModule,
+    FormsModule,
   ],
 })
 export class CoreModule {
