@@ -3,6 +3,7 @@ import { CommonModule } from '@angular/common';
 import { NgxSpinnerModule } from 'ngx-spinner';
 import { FormsModule, ReactiveFormsModule } from '@angular/forms';
 import { SuiModule } from 'ng2-semantic-ui';
+import { ComponentsModule } from '@app/shared/components/components.module';
 
 @NgModule({
   imports: [
@@ -11,13 +12,15 @@ import { SuiModule } from 'ng2-semantic-ui';
     ReactiveFormsModule,
     NgxSpinnerModule,
     SuiModule,
+    ComponentsModule,
   ],
   exports: [
     CommonModule,
     FormsModule,
     ReactiveFormsModule,
     NgxSpinnerModule,
-    SuiModule
-  ]
+    SuiModule,
+    ComponentsModule,
+  ],
 })
 export class SharedModule { }

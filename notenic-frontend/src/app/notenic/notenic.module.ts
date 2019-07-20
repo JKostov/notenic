@@ -2,16 +2,18 @@ import { NgModule } from '@angular/core';
 import { NotenicComponent } from './notenic.component';
 import { LoginComponent } from './login/login.component';
 import { SharedModule } from '@app/shared/shared.module';
-import { RouterModule } from '@angular/router';
+import { NotenicRoutingModule } from '@notenic/notenic-routing.module';
+import { RegisterComponent } from './register/register.component';
 
 @NgModule({
   imports: [
     SharedModule,
-    RouterModule
+    NotenicRoutingModule,
   ],
   declarations: [
     NotenicComponent,
-    LoginComponent
+    LoginComponent,
+    RegisterComponent,
   ]
 })
 export class NotenicModule { }
