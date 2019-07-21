@@ -12,7 +12,7 @@ export class AuthService {
   constructor(private http: HttpClient) { }
 
   login(loginData: LoginModel): Observable<any> {
-    const url = `${environment.apiUrl}/login`;
+    const url = `${environment.apiUrl}/auth/login`;
 
     return this.http.post<any>(url, loginData);
   }

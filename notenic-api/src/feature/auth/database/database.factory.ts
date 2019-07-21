@@ -7,20 +7,21 @@ export class DatabaseFactory implements TypeOrmOptionsFactory {
   private static readonly MaxPortNumber = 65535;
   private static readonly MinPortNumber = 1;
   private static readonly DefaultPort = 5432;
+  public static connectionName = 'auth';
 
   constructor(@Inject('IConfigService') private configService: IConfigService) { }
 
   createTypeOrmOptions(): TypeOrmModuleOptions {
     return {
-      name: 'notes',
+      name: DatabaseFactory.connectionName,
       type: 'postgres',
       port: this.getDatabasePort(),
       host: this.configService.get('POSTGRES_HOST'),
       username: this.configService.get('POSTGRES_USERNAME'),
       password: this.configService.get('POSTGRES_PASSWORD'),
       database: this.configService.get('POSTGRES_DATABASE'),
-      synchronize: false,
-      entities: [__dirname + '../**/*.entity{.ts,.js}'],
+      synchronize: true,
+      entities: [__dirname + '/../**/*.entity{.ts,.js}'],
     };
   }
 

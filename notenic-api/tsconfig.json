@@ -12,7 +12,8 @@
     "incremental": true,
     "paths": {
       "@app/*": ["./src/*"],
-      "@notes/*": ["./src/feature/notes/*"]
+      "@notes/*": ["./src/feature/notes/*"],
+      "@auth/*": ["./src/feature/auth/*"]
     }
   },
   "exclude": ["node_modules"]

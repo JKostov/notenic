@@ -1,9 +1,12 @@
 import { Module } from '@nestjs/common';
 import { ConfigModule } from '@app/shared/config/config.module';
-import { AuthModule } from '@app/shared/auth/auth.module';
+import { MailModule } from './mail/mail.module';
 
 @Module({
-  imports: [ConfigModule, AuthModule],
-  exports: [ConfigModule],
+  imports: [
+    ConfigModule,
+    MailModule,
+  ],
+  exports: [ConfigModule, MailModule],
 })
 export class SharedModule {}

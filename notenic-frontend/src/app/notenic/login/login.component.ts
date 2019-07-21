@@ -1,5 +1,8 @@
 import { Component, OnInit } from '@angular/core';
 import { FormBuilder, FormControl, FormGroup, Validators } from '@angular/forms';
+import { INotenicState } from '@notenic/store/notenic.state';
+import { Store } from '@ngrx/store';
+import { InitLogin } from '@notenic/store/notenic.actions';
 
 @Component({
   selector: 'app-login',
@@ -11,7 +14,7 @@ export class LoginComponent implements OnInit {
   emailFormControl: FormControl;
   passwordFormControl: FormControl;
 
-  constructor(private fb: FormBuilder) { }
+  constructor(private fb: FormBuilder, private store: Store<INotenicState>) { }
 
   ngOnInit(): void {
     this.emailFormControl = this.fb.control('', [Validators.required, Validators.email]);
@@ -23,4 +26,7 @@ export class LoginComponent implements OnInit {
     });
   }
 
+  onLoginClick(): void {
+    this.store.dispatch(new InitLogin());
+  }
 }

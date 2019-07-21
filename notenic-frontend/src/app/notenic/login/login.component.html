@@ -11,7 +11,7 @@
     <form class="ui form" [formGroup]="loginForm">
       <app-input name="Email address" placeholder="Email address" type="email" [formCtrl]="emailFormControl"></app-input>
       <app-input name="Password" placeholder="Password" type="password" [formCtrl]="passwordFormControl"></app-input>
-      <button name="login" class="ui button primary" [ngClass]="loginForm.valid ? '' : 'disabled'" type="button">Submit</button>
+      <button name="login" (click)="onLoginClick()" class="ui button primary" [ngClass]="loginForm.valid ? '' : 'disabled'" type="button">Submit</button>
     </form>
     <p class="text-center text-gray-500 text-xs">
       &copy;2019 Notenic. All rights reserved.
