@@ -8,6 +8,7 @@ import { RegisterDto } from '@auth/token/dto/register.dto';
 import { LoginDto } from '@auth/token/dto/login.dto';
 import { plainToClass } from 'class-transformer';
 import { MailerService } from '@nest-modules/mailer';
+import { LoginSuccessDto } from '@auth/token/dto/login-success.dto';
 
 @Injectable()
 export class TokenService implements ITokenService {
@@ -19,8 +20,12 @@ export class TokenService implements ITokenService {
     @Inject('IUserService') private readonly userService: IUserService,
   ) {}
 
-  async login(userData: LoginDto): Promise<string> {
+  async login(userData: LoginDto): Promise<LoginSuccessDto> {
     const user = await this.userService.getOneByEmail(userData.email);
+
+    if (!user) {
+      return null;
+    }
 
     const result = await TokenService.compareHash(userData.password, user.password);
 
@@ -28,7 +33,16 @@ export class TokenService implements ITokenService {
       return null;
     }
 
-    return await this.jwtService.signAsync({ email: user.email, username: user.username });
+    delete user.password;
+
+    const token = await this.jwtService.signAsync({ email: user.email, username: user.username });
+
+    const loginSuccessDto: LoginSuccessDto = {
+      user,
+      token,
+    };
+
+    return loginSuccessDto;
   }
 
   async register(userData: RegisterDto): Promise<any> {

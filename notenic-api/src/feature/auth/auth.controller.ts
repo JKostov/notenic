@@ -4,11 +4,8 @@ import {
   HttpException,
   HttpStatus,
   Inject,
-  InternalServerErrorException,
   Post,
   Res,
-  UsePipes,
-  ValidationPipe,
 } from '@nestjs/common';
 import { LoginDto } from '@auth/token/dto/login.dto';
 import { ITokenService } from '@auth/token/interfaces/token.service.interface';
@@ -23,13 +20,13 @@ export class AuthController {
 
   @Post('/login')
   public async login(@Body() loginDto: LoginDto, @Res() res) {
-    const token = await this.tokenService.login({ email: loginDto.email, password: loginDto.password });
+    const loginSuccessDto = await this.tokenService.login(loginDto);
 
-    if (!token) {
+    if (!loginSuccessDto) {
       throw new HttpException(loginFailedMessage, HttpStatus.BAD_REQUEST);
     }
 
-    res.status(HttpStatus.OK).json({ token });
+    return res.status(HttpStatus.OK).json(loginSuccessDto);
   }
 
   @Post('/register')

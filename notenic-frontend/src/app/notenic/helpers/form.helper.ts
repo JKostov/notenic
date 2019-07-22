@@ -9,8 +9,6 @@ export class FormHelper {
     }
 
     Object.keys(validationErrors).forEach(e => {
-      console.log(e);
-      console.log(validationErrors[e]);
       switch (e) {
         case 'required': {
           errors.push(`${name} is required.`);

@@ -1,7 +1,8 @@
 import { NgModule } from '@angular/core';
 import { Routes, RouterModule } from '@angular/router';
 import { NotenicComponent } from '@notenic/notenic.component';
-import { LoginComponent } from '@notenic/login/login.component';
+import { LoginComponent } from '@notenic/auth/login/login.component';
+import { LoggedGuard } from '@notenic/services/auth/logged.guard';
 
 const routes: Routes = [
   {
@@ -11,7 +12,8 @@ const routes: Routes = [
   },
   {
     path: 'login',
-    component: LoginComponent
+    component: LoginComponent,
+    canActivate: [LoggedGuard],
   },
 ];
 
