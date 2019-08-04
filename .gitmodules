@@ -1,0 +1,10 @@
+[submodule "notenic-api"]
+	path = notenic-api
+	url = git@github.com:JKostov/notenic-api.git
+	branch = master
+
+[submodule "notenic-frontend"]
+        path = notenic-frontend
+        url = git@github.com:JKostov/notenic-frontend.git
+	branch = master
+
