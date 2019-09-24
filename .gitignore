@@ -1,6 +1,7 @@
 # Projects
 notenic-api/*
 notenic-frontend/*
+notenic-files/*
 
 # IDEs and editors
 /.idea

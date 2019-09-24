@@ -3,6 +3,11 @@
 	url = git@github.com:JKostov/notenic-api.git
 	branch = master
 
+[submodule "notenic-files"]
+        path = notenic-files
+        url = git@github.com:JKostov/notenic-files.git
+	branch = master
+
 [submodule "notenic-frontend"]
         path = notenic-frontend
         url = git@github.com:JKostov/notenic-frontend.git

@@ -4,6 +4,7 @@ Markdown notes for companies and users.
 
 ## Projects
 - [notenic-api](https://github.com/JKostov/notenic-api) [![Build Status](https://travis-ci.com/JKostov/notenic-api.svg?token=gT7TzwqL3fHqXDfPv7Kd&branch=master)](https://travis-ci.com/JKostov/notenic-api)
+- [notenic-files](https://github.com/JKostov/notenic-files)
 - [notenic-frontend](https://github.com/JKostov/notenic-frontend) [![Build Status](https://travis-ci.com/JKostov/notenic-frontend.svg?token=gT7TzwqL3fHqXDfPv7Kd&branch=master)](https://travis-ci.com/JKostov/notenic-frontend)
 
 ## Technologies
