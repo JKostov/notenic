@@ -17,6 +17,7 @@ services:
       - NODE_ENV=development
     depends_on:
       - notenic-postgres
+      - notenic-nats
 
   notenic-files:
     build:
@@ -60,6 +61,13 @@ services:
       - NODE_ENV=development
     depends_on:
       - notenic-api
+
+  notenic-nats:
+    image: nats:2.1.0
+    expose:
+      - "4222"
+    ports:
+      - "8222:8222"
 
 volumes:
   notenic-api_node_modules: {}
