@@ -64,6 +64,7 @@ services:
 
   notenic-nats:
     image: nats:2.1.0
+    container_name: notenic-nats
     expose:
       - "4222"
     ports:
