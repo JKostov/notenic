@@ -2,6 +2,7 @@
 notenic-api/*
 notenic-frontend/*
 notenic-files/*
+notenic-notifications/*
 
 # IDEs and editors
 /.idea

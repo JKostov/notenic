@@ -8,6 +8,11 @@
         url = git@github.com:JKostov/notenic-files.git
 	branch = master
 
+[submodule "notenic-notifications"]
+        path = notenic-notifications
+        url = git@github.com:JKostov/notenic-notifications.git
+	branch = master
+
 [submodule "notenic-frontend"]
         path = notenic-frontend
         url = git@github.com:JKostov/notenic-frontend.git
