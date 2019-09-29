@@ -48,6 +48,8 @@ services:
       - notenic-notifications_node_modules:/app/node_modules
     environment:
       - NODE_ENV=development
+    depends_on:
+      - notenic-mongo
 
   notenic-postgres:
     image: postgres:11.4-alpine
@@ -58,6 +60,18 @@ services:
     - POSTGRES_USER=root
     - POSTGRES_PASSWORD=root
     - POSTGRES_DB=notenic
+
+  notenic-mongo:
+    image: mongo:4.2
+    container_name: notenic-mongo
+    volumes:
+      - ./mongo/init.js:/docker-entrypoint-initdb.d/init.js:ro
+    ports:
+    - "27017:27017"
+    environment:
+    - MONGO_INITDB_ROOT_USERNAME=root
+    - MONGO_INITDB_ROOT_PASSWORD=root
+    - MONGO_INITDB_DATABASE=notenic
 
   notenic-frontend:
     build:
